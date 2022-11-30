@@ -1,0 +1,35 @@
+---
+sidebar_position: 1
+title: IC3 Servers
+description: IC3 owned servers
+---
+
+import ServerCards from '@site/src/components/ServerCards';
+
+## Servers
+
+### Introduction
+Currently, there are three servers purchased and deployed for IC3 Team.<br />
+Each of them has its own usage and plans. Please click on the below links to get familar with each server and the pipelins deployed on the servers.
+
+<ServerCards /> 
+
+### How to access server
+
+:::info
+We are planning to deploy the Kubernetes within the servers.
+:::
+
+
+<details>
+<summary> Useful Linux commands</summary>
+
+* Find CPU information: `lscpu`
+* Find OS information: `lsb_release -a`
+* Find CPU Model info: `cat /proc/cpuinfo | grep 'model name' | uniq`
+* Find GPU information: `nvidia-smi -L`
+* Find RAM information: `free -g -t -o`
+* Find Disk information: `lsblk -d -o name,rota,size`
+> rota:1, HDD; rota:0, SSD
+
+</details>

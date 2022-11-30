@@ -1,0 +1,140 @@
+---
+sidebar_position: 1
+title: Accesses to IC3 resources
+description: Authentication and Authorizations of resources
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+:::warning
+Any member who needs to access PHI/restricted data is mandatory to take IRB trainings and added into IRBs before obtaining any accesses.
+
+To consult about IRB issues, please contact [Armfield, Brooke A](mailto:barmfield@ufl.edu) or [Davidson, Andrea](mailto:Andrea.Davidson@medicine.ufl.edu).
+:::
+## Resources
+
+### Shared folder and Databases
+Shared folder and databases are the infrastructures for storage. Both of them are managed by UF Health IT in **restricted UF Health network**.<br />
+Shared folder is used to store datasets and in-house developed codes as flat files. <br />
+Databases are used to store structed, cleaned data.
+
+#### To obtain the access to shared folder/databases, here is the work flow:
+
+```mermaid
+%%{init: {'securityLevel': 'loose', 'theme':'base'}}%%
+flowchart LR
+start[Requester] --send requests -->judge[IC3 data core]
+
+judge --> judge2{IT requests needed?}
+
+judge2 -- yes -->b[Project Manager]
+b --send IT requests--> IT
+judge2 -- no --> b2[IC3 data core]
+b2 --fulfill requests -->start
+
+```
+
+1. PI needs to send requests to [IC<sup>3</sup> Data Core](mailto:ziyuan.guan@ufl.edu) on behalf of the user.
+2. [Wasykowski, Natalie](mailto:Natalie.Wasykowski@medicine.ufl.edu) is the project manager.
+3. If the user has IRB issues, please contact [Armfield, Brooke A](mailto:barmfield@ufl.edu) or [Davidson, Andrea](mailto:Andrea.Davidson@medicine.ufl.edu).
+
+<details>
+<summary> Mount the shared folder with local machine </summary>
+
+<Tabs
+  defaultValue="Windows"
+  values={[
+    {label: 'Windows', value: 'Windows'},
+    {label: 'MacOS/Linux', value: 'MacOS/Linux'},
+  ]}>
+
+  <TabItem value="Windows">
+    1. Open file explorer and go to "My Computer." <br />
+    2. Right click anywhere in the "My Computer" window and select "add network location" from the drop-down list.<br /> 
+    3. A window will pop up asking you where you would like to create your network location. Select "Choose a custom location."<br /> 
+    4. In the input box that comes up, type in <u>\\AHCDFS.AHC.ufl.edu\files\DOM\SHARE</u> <br />
+         &nbsp;&nbsp;&nbsp;&nbsp;The login account is : UFAD\userName (eg. UFAD\ziyuan.guan)<br />
+         &nbsp;&nbsp;&nbsp;&nbsp;The password is : gatorlink password<br /> 
+    5. Name your new location "Share," and proceed to the final window. Click "Finish." <br />
+  </TabItem>
+  <TabItem value="MacOS/Linux">
+    <p>Please follow this <a href='https://support.apple.com/guide/mac-help/set-up-file-sharing-on-mac-mh17131/mac'>link</a></p>
+    1. Click File Manager <br />
+    2. Click Connect-to-Server <br />
+    3. The URL is: smb://AHCDFS.AHC.ufl.edu/files/DOM/SHARE. <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;The login account is : UFAD\userName (eg. UFAD\ziyuan.guan)<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;The password is : gatorlink password<br /> 
+  </TabItem>
+</Tabs>
+
+</details>
+
+#### To access the databases:
+Please refer to [database access tutorial](/docs/tutorials/For%20Members/connectWithDatabase.mdx) to access the databases.
+
+--- 
+
+### IC<sup>3</sup> GitHub
+
+[IC<sup>3</sup> GitHub](https://github.com/Prisma-pResearch) is private, please contact with [Guan, Ziyuan(Chester)](mailto:ziyuan.guan@ufl.edu) to obtain the access.
+
+--- 
+
+### IC<sup>3</sup> Servers
+To access servers, PI needs to send requests to [IC<sup>3</sup> System Core](mailto:ziyuan.guan@ufl.edu) on behalf of the team member. <br />
+:::tip
+There are two ways to access the computational resources: 
+:::
+#### 1. Create `Jupyter Notebook Server` container for users
+This method is suitable for **short-team** projects, OPS students and beginners. **It's the quickest way to get the computational resources currently.**
+* **<u>Pros</u>**:
+1. No need to send IT tickets to add user into the server.
+2. It's easier to control the permissions of the user.
+3. Our customized Jupyter notebook docker image has already installed packages for data processing and model training. 
+* **<u>Cons</u>**:
+1. Users only has the permissions for limited resources and files.
+2. Users cannot use docker containers.
+
+> IC<sup>3</sup> System Core manages the `Jupyter Notebook Server` containers.
+
+#### 2. Add user into server
+This method is suitable for **long-term** projects, PHD students, data scientists and engineers.
+* **<u>Pros</u>**:
+1. Direct access to the server and docker container. 
+2. Able to create personal environments.
+* **<u>Cons</u>**:
+1. Need to send IT tickets to add user into the server.
+2. User needs to have fundamental knowledge to use Linux command lines.
+3. User's casual operations might crash other people's work.
+
+--- 
+
+### HiPerGator
+:::tip HiPerGator Groups
+Currently, IC<sup>3</sup> has **2** HiPerGator groups. 
+:::
+
+#### [`uf-iccc` group](/docs/workspaces/HiPerGator#uf-iccc-group)
+The group aims to provide instant computational resources for educational purposes.<br />
+To request the access to the group, please submit the request [here](https://gravity.rc.ufl.edu/access/request-account/)
+> select Faculty Sponsor as `Guan, Ziyuan`
+
+
+
+#### [`uf-chorus` group](/docs/workspaces/HiPerGator#uf-chorus-group)
+The group aims to provide powerful computational resources for ChoRUS project.<br />
+To request the access to the group, please submit the request [here](https://gravity.rc.ufl.edu/access/request-account/)
+> select Faculty Sponsor as `Bihorac, Azra`
+
+--- 
+
+### UF Health VPN
+UF Health IT manages the accounts who are able to use UF health VPN.<br />
+Please contact with [IC<sup>3</sup> System Core](mailto:ziyuan.guan@ufl.edu) to get the access.
+
+
+:::info REMOVE ACCESS
+Please remove the accesses asap when members left the projects.
+:::
+

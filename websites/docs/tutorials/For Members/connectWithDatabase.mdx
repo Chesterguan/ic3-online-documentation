@@ -1,0 +1,112 @@
+---
+sidebar_position: 1
+title: Connect with Database
+description: Tutorials to connect with IC3 databases
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Introduction
+IC<sup>3</sup> have built and maintained multiple databases to store the **cleaned data**.
+With the database, researchers are able to understand the datasets and filter the research sub-cohort easily. 
+Our data has two different data models:
+- UF IDR(Integrated Data Registry) format
+- [OMOP CDM v5.4](https://ohdsi.github.io/CommonDataModel/cdm54.html)
+:::tip
+In the future, all of data will be in **OMOP CDM**. We are working hard to fully map the Epic data now.
+:::  
+
+## Instructions
+Currently, we have three data servers.
+
+<Tabs>
+<TabItem value="Prod-MySQL" label="Prod-MySQL">
+
+The database schemas are hosted by a MySQL server.<br />
+The authentication and authorization of the data server is managed by UF Health IT, to obtain the access to the database, please refer to the instructions [here](/docs/tutorials/For%20PI/Accesses#databases).<br />
+To work with the database, we recommend to use [MySQL Workbench](https://www.mysql.com/products/workbench/) software.<br />
+- HostPath: mysql07.ahc.ufl.edu
+- Port: 3306
+
+</TabItem>
+<TabItem value="Prod-MSSQL" label="Prod-MSSQL">
+
+The database schemas are hosted by a SQL server.<br />
+The authentication and authorization of the data server is managed by UF Health IT, to obtain the access to the database, please refer to the instructions [here](/docs/tutorials/For%20PI/Accesses#databases).<br />
+To work with the database, we recommend to use [DBeaver](https://dbeaver.io/) software.<br />
+- HostPath: ahc-prismapdb.ahc.ufl.edu
+- Port: 1433
+
+```py title="databaseConnection.py"
+from sqlalchemy import create_engine 
+from sqlalchemy.engine import URL 
+#highlight-next-line
+# build connection with Windows Authentication
+connection_string = ( 
+
+    r"Driver={ODBC Driver 17 for SQL Server};"     
+
+    r"Server={AHC-PRISMAPDB.AHC.UFL.EDU};"     
+
+    r"Database={PRISMAP_IDEALIST};"     
+
+    r"Trusted_Connection=yes;" 
+
+) 
+
+connection_url = URL.create( 
+
+    "mssql+pyodbc",  
+
+    query={"odbc_connect": connection_string} 
+
+) 
+
+engine = create_engine(connection_url) 
+```
+
+</TabItem>
+<TabItem value="Test-MSSQL" label="Test-MSSQL">
+
+The database schemas are hosted by a MySQL data server.<br />
+The authentication and authorization of the data server is managed by IC<sup>3</sup> Data Core, to obtain the access to the database, please refer to the instructions [here](/docs/tutorials/For%20PI/Accesses#shared-folder-and-databases).<br />
+To work with the database, we recommend to use [DBeaver](https://dbeaver.io/) software.<br />
+HostPath: 10.14.134.118
+Port: 1434
+
+```py title="databaseConnection.py"
+
+from sqlalchemy import create_engine 
+from sqlalchemy.engine import URL 
+#highlight-next-line
+# build connection with SQL Server Authentication
+connection_string = ( 
+
+  r"Driver={SQL Server Native Client 11.0};"     
+
+  r"Server= {10.14.134.118,1434};"     
+
+  r"Database= {IDEALIST_OMOP};"     
+
+  "UID={xxusernamexxhere};"             
+
+  "PWD={xxxpasswordxxhere};"    
+) 
+
+connection_url = URL.create( 
+
+  "mssql+pyodbc",  
+
+  query={"odbc_connect": connection_string} 
+
+) 
+
+engine = create_engine(connection_url) 
+```
+
+</TabItem>
+</Tabs>
+
+:::info UF Health VPN
+All databases are protected under UF Health restricted network. [UF Health VPN](/docs/tutorials/For%20Members/connectWithUFHealthVPN.mdx) is **necessary** to build the connection.
+:::
