@@ -37,17 +37,9 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -66,6 +58,16 @@ const config = {
       {
         // options
         maxSearchResults: 8,
+      }
+    ],
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 85,
+        max: 1030, 
+        min: 640,
+        steps: 2,
+        disableInDev: true
       }
     ]
   ],
@@ -148,12 +150,25 @@ const config = {
         },
         copyright: `Copyright © ${new Date().getFullYear()} Intelligent Critical Care Center, Inc. Built with Docusaurus.`,
       },
+      announcementBar: {
+        id: 'announcementBar', // Increment on change
+        content: `⭐️ The documen is in development`,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
       mermaid: {
         theme: {light: 'neutral', dark: 'forest'},
+      },
+      liveCodeBlock: {
+        playgroundPosition: 'bottom',
       },
     }),
 };

@@ -1,10 +1,42 @@
 ---
-title: Summary
+title: Datasets Dashboard
+sidebar_position: 1
+slug: /category/datasets
 description: Summary of databases
 ---
-
+import Image from '@theme/IdealImage';
 import DatabaseCards from '@site/src/components/DatabaseCards';
+import TimelineComponent from '@site/src/components/DatasetsTimelineComponent';
 
-![image](https://lucid.app/lucidchart/5ea49dda-e967-4451-a8b7-46330b8e88a4/edit?view_items=oe2i~Dq4ZwSQ&invitationId=inv_523b232f-0a91-416c-8f08-fc800bc43dfe#)
+Datasets are the most important resources we have gained and maintained. Different datasets have various subjects, features and outcomes.<br />
+Understand the datases by reading the datasets descriptions, data dictionaries and data workflows will always be the first step to start the research.<br />  
 
+## Datasets Statistics
 <DatabaseCards/>
+
+## Datasets Workflow
+IC<sup>3</sup> data core takes the responsibility to **manage** the data collected from UF-IDR(Integrated Data Registry). All data will be processed and stored with below brief workflow.<br />
+
+```mermaid
+%%{init: {'theme':'base'}}%%
+flowchart LR
+A[Raw data] -- IDR data pipeline --> B[EHR/Text data] & G[Image data] & I[Waveform data]
+B -- Data Cleaning Pipeline --> C[Cleaned EHR data]
+B -- Variables generation Pipeline --> D[Generated variables]
+G & I  -- Data Indexing Pipeline --> H[File metadata]
+C & D & H -- OMOP Mapping Pipeline --> F[(databases)]
+
+```
+Researchers are recommended to **query the structured databases** and download the sub-cohort for each project. <br />
+Please feel free to contact with [IC<sup>3</sup> data core](mailto:ziyuan.guan@ufl.edu,shickelb@ufl.edu,Tezcan.OzrazgatBaslanti@medicine.ufl.edu) about any datasets problems.
+
+<details>
+<summary>Overall Data Workflow</summary>
+<Image img={require('./workflow.png')} />
+
+</details>
+
+## Datasets Plan
+
+<TimelineComponent />
+

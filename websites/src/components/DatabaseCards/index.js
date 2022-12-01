@@ -8,48 +8,53 @@ import { Col, Row, Statistic, Card, Divider } from 'antd';
 
 const FeatureList=[
     {
-        title:'MySQL-IDELIAST',
+        title:'IDEALIST',
+        description:'Surgical Patients',
+        numPatients:20380,
+        numEncounters:18273,
+        numSurgeries:7384,
+        isOMOP:'Enabled',
+        icon:<SmileOutlined/>,
+        link:'/docs/datasets/IDEALIST'
+    },
+    {
+        title:'AKI EPIC 2',
         description:'',
         numPatients:20380,
         numEncounters:18273,
         numSurgeries:7384,
         isOMOP:'Disabled',
-        icon:<FrownOutlined/>
+        icon:<FrownOutlined/>,
+        link:'/docs/datasets/AKIEPIC2',
     },
     {
-        title:'OMOP-IDELIAST',
+        title:'Multimodal AI',
         description:'',
         numPatients:20380,
         numEncounters:18273,
         numSurgeries:7384,
         isOMOP:'Enabled',
-        icon:<SmileOutlined/>
+        icon:<SmileOutlined/>,
+        link:'/docs/datasets/MultimodalAI'
     },
     {
-        title:'OMOP-IDELIAST',
-        description:'',
+        title:'ChoRUS',
+        description:'OMOP surgical patients',
         numPatients:20380,
         numEncounters:18273,
         numSurgeries:7384,
         isOMOP:'Enabled',
-        icon:<SmileOutlined/>
-    },
-    {
-        title:'OMOP-IDELIAST',
-        description:'',
-        numPatients:20380,
-        numEncounters:18273,
-        numSurgeries:7384,
-        isOMOP:'Enabled',
-        icon:<SmileOutlined/>
+        icon:<SmileOutlined/>,
+        link:'/docs/datasets/Chorus'
     },
 ]
 
-function Feature({title, numPatients, numEncounters, numSurgeries, isOMOP,icon }) {
+function Feature({title, description, numPatients, numEncounters, numSurgeries, isOMOP,icon, link }) {
 
     return (
       <div style={{'margin-right':'2rem', 'margin-top':'1rem'}}>
-        <Card hoverable title={title} bordered={true} style={{width:400}}>
+        <Card hoverable title={title} bordered={true} style={{width:400}} type='inner' extra=<a href={link}>Details</a>>
+        <p>{description}</p>
         <Row gutter={16}>
             <Col span={12}>
             <Statistic title="Num of patients" value={numPatients} />

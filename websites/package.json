@@ -16,6 +16,7 @@
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^0.11.0",
     "@docusaurus/core": "2.2.0",
+    "@docusaurus/plugin-ideal-image": "^2.2.0",
     "@docusaurus/preset-classic": "2.2.0",
     "@docusaurus/theme-classic": "^2.2.0",
     "@docusaurus/theme-live-codeblock": "^2.2.0",
