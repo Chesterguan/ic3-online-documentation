@@ -61,6 +61,13 @@ const config = {
   plugins:[
     '@docusaurus/theme-mermaid',
     'docusaurus-theme-multi-codetabs',
+    [
+      require.resolve("@cmfcmf/docusaurus-search-local"),
+      {
+        // options
+        maxSearchResults: 8,
+      }
+    ]
   ],
 
   themeConfig:
@@ -81,10 +88,14 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/Prisma-pResearch',
-            label: 'GitHub',
+            type: 'search',
             position: 'right',
           },
+          {
+            href: 'https://github.com/Prisma-pResearch',
+            className: 'header-github-link',
+            position: 'right',
+          }
         ],
       },
       footer: {

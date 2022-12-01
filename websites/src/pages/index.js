@@ -30,7 +30,7 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Welcome to ${siteConfig.title}`}
+      title={`Welcome to IC3 Online Documentation`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
