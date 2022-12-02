@@ -37,12 +37,25 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+          exclude:['summary.mdx']
         },
         blog: {
           showReadingTime: true,
+          postsPerPage: 6,
+          blogTitle: 'Innovative Ideas!',
+					blogDescription: 'Innovative ideas and discovers',
+					blogSidebarTitle: 'Latest posts',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [require.resolve('./src/css/custom.css')],//,require.resolve('./src/css/blog-layout.scss')
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
         },
       }),
     ],
@@ -53,6 +66,7 @@ const config = {
   plugins:[
     '@docusaurus/theme-mermaid',
     'docusaurus-theme-multi-codetabs',
+    'docusaurus-plugin-sass',
     [
       require.resolve("@cmfcmf/docusaurus-search-local"),
       {
@@ -69,7 +83,20 @@ const config = {
         steps: 2,
         disableInDev: true
       }
-    ]
+    ],
+    [
+      'content-docs',
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      ({
+        id: 'resources',
+        path: 'resources',
+        routeBasePath: 'resources',
+        breadcrumbs: true,
+        sidebarPath: require.resolve('./sidebarResources.js'),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      }),
+    ],
   ],
 
   themeConfig:
@@ -87,6 +114,12 @@ const config = {
             docId: 'intro',
             position: 'left',
             label: 'Docs',
+          },
+          {
+            to: '/resources/intro',
+            label: 'Resources',
+            position: 'left',
+            activeBaseRegex: `/resources/`,
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -163,6 +196,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        defaultLanguage: 'python',
       },
       mermaid: {
         theme: {light: 'neutral', dark: 'forest'},

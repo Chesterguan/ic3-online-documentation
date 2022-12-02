@@ -38,5 +38,6 @@ export default function Home() {
         <HomepageIcons />
       </main>
     </Layout>
+    
   );
 }

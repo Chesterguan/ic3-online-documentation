@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import styles from './styles.module.css';
 import { Card } from 'antd';
 
@@ -74,7 +74,7 @@ const FeatureList = [
 ];
 
 function Feature({title, description,ip,domain, os, cpuType, cpuNum,gpuType, gpuNum, ram, diskH, diskS,link,status}) {
-  var isWorking = status.includes("working"); //TODO: fix the logic
+  const isWorking = status.includes("working");
   return (
     <div>
     <Card hoverable title= {title} bordered={true} style={{width:800}} extra={<a href={link}>Details</a>}>
@@ -83,7 +83,7 @@ function Feature({title, description,ip,domain, os, cpuType, cpuNum,gpuType, gpu
         <h5>CPU: {cpuNum} cores {cpuType}</h5>
         <h5>GPU: {gpuNum} cores {gpuType}</h5>
         <h5>RAM: {ram}(GB) &nbsp; &nbsp; &nbsp; Storage: {diskH}(TB) HDD &nbsp;{diskS}(TB) SSD </h5>
-        <h4 style={{color:{isWorking}?'green':'red'}}>{status}</h4>
+        <h4 style={isWorking?{color:'green'}:{color:'red'}}>{status}</h4>
     </Card>
     <p></p>
     </div>

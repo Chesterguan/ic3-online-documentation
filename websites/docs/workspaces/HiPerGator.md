@@ -29,7 +29,7 @@ The resources are shared thourgh IC3 center but applied for **Educational Purpos
 * 16 Cores GPUs
 * 10TB Blue Storage
 
-With the expanding of the center, we will increase the resources by the time.
+With the expanding of the center, we will increase the resources by time.
 
 :::warning Attention
 Only completed de-identified data is allowed to be used in this workspace. So if the projects are involved with restricted/PHI data, please use other infrastructures. 
@@ -63,5 +63,3 @@ It's always encouraged to review those videos when you are not sure about the op
 * [Support System](https://support.rc.ufl.edu/)
 * [Managing Python environments](https://help.rc.ufl.edu/doc/Managing_Python_environments_and_Jupyter_kernels)
 * [UFRC Conda tutorials](https://help.rc.ufl.edu/doc/Conda)
-
-

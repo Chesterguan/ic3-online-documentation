@@ -14,7 +14,6 @@ const FeatureList=[
         numEncounters:18273,
         numSurgeries:7384,
         isOMOP:'Enabled',
-        icon:<SmileOutlined/>,
         link:'/docs/datasets/IDEALIST'
     },
     {
@@ -24,7 +23,6 @@ const FeatureList=[
         numEncounters:18273,
         numSurgeries:7384,
         isOMOP:'Disabled',
-        icon:<FrownOutlined/>,
         link:'/docs/datasets/AKIEPIC2',
     },
     {
@@ -34,7 +32,6 @@ const FeatureList=[
         numEncounters:18273,
         numSurgeries:7384,
         isOMOP:'Enabled',
-        icon:<SmileOutlined/>,
         link:'/docs/datasets/MultimodalAI'
     },
     {
@@ -44,12 +41,14 @@ const FeatureList=[
         numEncounters:18273,
         numSurgeries:7384,
         isOMOP:'Enabled',
-        icon:<SmileOutlined/>,
         link:'/docs/datasets/Chorus'
     },
 ]
 
-function Feature({title, description, numPatients, numEncounters, numSurgeries, isOMOP,icon, link }) {
+function Feature({title, description, numPatients, numEncounters, numSurgeries, isOMOP, link }) {
+  const omopFlag = isOMOP.includes("Enabled");
+  const icon = omopFlag?<SmileOutlined/>:<FrownOutlined/>;
+  const wordColor = omopFlag?'#3f8600':'#cf1322';
 
     return (
       <div style={{'margin-right':'2rem', 'margin-top':'1rem'}}>
@@ -66,7 +65,9 @@ function Feature({title, description, numPatients, numEncounters, numSurgeries, 
             <Statistic title="Number of surgeries" value={numSurgeries} />
             </Col>
             <Col span={12}>
-            <Statistic title="OMOP version" value={isOMOP} prefix= {icon} />
+            <Statistic title="OMOP version" value={isOMOP} prefix= {icon} valueStyle={{
+              color: {wordColor}, // TODO: why not working ?
+            }} />
             </Col>
             <Col></Col>
         </Row>
@@ -74,6 +75,7 @@ function Feature({title, description, numPatients, numEncounters, numSurgeries, 
       </div>
     );
   }
+  //valueStyle={{color:{color,}}}
   
   export default function DatabaseCards() {
     return (
