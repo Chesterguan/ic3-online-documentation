@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Feature from './feature';
 
 const FeatureList = [
   {
@@ -33,22 +34,10 @@ const FeatureList = [
       </>
     ),
   },
+
 ];
 
-function Feature({url, link, title, description}) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <img className={styles.featureSvg} src={url} />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <a href={link}>Details</a>
-      </div>
-    </div>
-  );
-}
+
 
 export default function HomepageIcons() {
   return (
@@ -57,6 +46,7 @@ export default function HomepageIcons() {
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
+            
           ))}
         </div>
       </div>
