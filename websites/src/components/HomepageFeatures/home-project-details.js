@@ -99,9 +99,9 @@ const HomeProjectDetail = ({ title }) => {
         <div>
 
 
-           {title == "Projects" && ProjectsArray}
-           {title == "Datasets" && DatasetArray}
-            {title == "Workspaces" && WorkspaceArray}
+        {title == "Projects" && ProjectsArray}
+        {title == "Datasets" && DatasetArray}
+        {title == "Workspaces" && WorkspaceArray}
 
         </div>
 

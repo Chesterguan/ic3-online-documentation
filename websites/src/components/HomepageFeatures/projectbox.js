@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 
 const ProjectBox = ({ Title, LinkTo }) => {
   return (
-    <Link className={`no-underline`} to={LinkTo}>
+    <Link className={`no-underline`} to={LinkTo} style={{textDecorationLine: "none"}}>
       <div className='
       flex mr-[23px] 
       items-center flex-wrap  

@@ -2,13 +2,20 @@ import React from 'react'
 import Link from '@docusaurus/Link';
 
 const WorkspaceBox = ({ Title, LinkTo, Update, NumPatients, NumSurgeries }) => {
-  return (
-    <div className='flex mr-[1.8rem] items-center flex-wrap w-[16rem] h-[12rem] text-center border-1 rounded-sm shadow-lg'>
-      <Link to={LinkTo}>
+    return (
+<Link  to={LinkTo} style={{textDecorationLine: "none"}}>
+    <div className='flex mr-[1.8rem] items-center flex-wrap w-[16rem] h-[12rem] text-center border-1 rounded-sm shadow-lg
+          hover:bg-[#ddd]
+          font-[500]
+          
+          justify-center
+          mt-[1.5rem]
+          '>
+     
         <div className='w-[12rem] font-[500] mt-[1rem]'>
           {Title}
         </div>
-        <div className=' mt-[0.5rem]'>
+        <div className=' mt-[0.5rem] '>
 
           <div className='text-[0.8rem]'>Patients: {NumPatients} </div>
 
@@ -19,11 +26,12 @@ const WorkspaceBox = ({ Title, LinkTo, Update, NumPatients, NumSurgeries }) => {
         </div>
 
 
-      </Link>
+      
 
 
     </div>
-  )
+    </Link>
+    )
 }
 
 export default WorkspaceBox

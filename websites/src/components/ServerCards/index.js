@@ -77,7 +77,7 @@ function Feature({title, description,ip,domain, os, cpuType, cpuNum,gpuType, gpu
   const isWorking = status.includes("working");
   return (
     <div>
-    <Card hoverable title= {title} bordered={true} style={{width:800}} extra={<a href={link}>Details</a>}>
+    <Card className='my-[1rem] border-4' hoverable title= {title} bordered={true} style={{width:700}} extra={<a href={link}>Details</a>}>
         <p>{description}</p>
         <h5>IP: {ip} &nbsp; &nbsp; &nbsp; Domain: {domain} &nbsp; &nbsp; &nbsp; OS: {os}</h5>
         <h5>CPU: {cpuNum} cores {cpuType}</h5>

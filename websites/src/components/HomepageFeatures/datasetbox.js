@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 
 const DatasetBox = ({ Title, LinkTo, Update, NumPatients, NumSurgeries }) => {
   return (
-    <Link className={`items-center`} to={LinkTo}>
+    <Link className={`items-center`} to={LinkTo} style={{textDecorationLine: "none"}}>
     <div className='flex mr-[1.8rem] items-center flex-wrap w-[16rem] h-[12rem] text-center border-1 rounded-sm shadow-lg
           hover:bg-[#ddd]
           font-[500]

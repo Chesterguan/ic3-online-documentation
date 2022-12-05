@@ -23,7 +23,7 @@ const ItemShowBox = ({ Title, List }) => {
 
 {
           Title == "Workspaces" &&
-            List.map(i => <WorkspaceBox Title={i.name} LinkTo = {i.link} />)
+            List.map(i => <WorkspaceBox  Title={i.name} LinkTo = {i.link} Update = {i.update} NumPatients={i.numPatients}  NumSurgeries={i.numSurgeries}/>)
             
         }
       </div>
