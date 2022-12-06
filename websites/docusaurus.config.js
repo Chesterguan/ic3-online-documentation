@@ -185,7 +185,7 @@ const config = {
       },
       announcementBar: {
         id: 'announcementBar', // Increment on change
-        content: `⭐️ The documen is in development`,
+        content: `⭐️ The documents are still in development`,
       },
       docs: {
         sidebar: {
