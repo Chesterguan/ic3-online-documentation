@@ -88,9 +88,6 @@ function Feature({url, title, description, tagArray, author}) {
             actions.push(TagsDict[key])
         }
     }
-
-    console.log(actions)
-
     const comp = actions.map((props, idx) => (
         <Action key={idx} {...props} />
     ))
