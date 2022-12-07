@@ -30,7 +30,7 @@ const TagsDict = {
 
 var FeatureList = [  // The meta info of the model cards
     {
-      title: 'Easy to Use',
+      title: 'SOFA',
       url: '/img/workspaces.png', // img should be small
       description: (
         <>
@@ -42,7 +42,7 @@ var FeatureList = [  // The meta info of the model cards
       author: 'https://github.com/endiliey.png' // can use github avatar : https://github.com/[ACCOUNT].png
     },
     {
-      title: 'Focus on What Matters',
+      title: 'MySurgeryRisk',
       url: '/img/projects.png',
       description: (
         <>
@@ -55,7 +55,7 @@ var FeatureList = [  // The meta info of the model cards
       author:'https://github.com/Chesterguan.png'
     },
     {
-      title: 'Always Updated',
+      title: 'AKI Phenotype',
       url: '/img/datasets.png', 
       description: (
         <>
@@ -92,7 +92,7 @@ function Feature({url, title, description, tagArray, author}) {
         <Action key={idx} {...props} />
     ))
     return (
-    <div style={{'margin-right':'auto', 'margin-top':'1rem', 'maxWidth':'28%',}}>
+    <div style={{'margin-right':'auto', 'margin-top':'1rem', 'maxWidth':'40%',}}>
       <Card hoverable
         cover={<img style={{'margin':'0.1rem'}}  src={url} />}
         actions= {
