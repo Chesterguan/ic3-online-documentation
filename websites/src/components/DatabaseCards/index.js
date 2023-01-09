@@ -10,9 +10,9 @@ const FeatureList=[
     {
         title:'IDEALIST',
         description:'Surgical Patients',
-        numPatients:20380,
-        numEncounters:18273,
-        numSurgeries:7384,
+        numPatients:137902,
+        numEncounters:191384,
+        numSurgeries:236940,
         isOMOP:'Enabled',
         link:'/docs/datasets/IDEALIST'
     },
